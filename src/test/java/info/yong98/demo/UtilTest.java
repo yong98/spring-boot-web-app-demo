@@ -39,7 +39,7 @@ public class UtilTest {
 
 	@Test
 	public final void convertTest() {
-		List<String> words = PhoneNumber2WordConvertor.getWords("{\"phoneNumber\":\"4102300156\"}");
+		List<String> words = PhoneNumber2WordConvertor.getWords("{\"phoneNumber\":\"2103879456\"}");
 		assertTrue(words.size() > 0);
 		for (String s : words)
 			logger.info(s);
@@ -48,15 +48,15 @@ public class UtilTest {
 
 	@Test
 	public final void servicePutTest() {
-		Integer count = service.put("8273425").getCounts();
+		Integer count = service.put("3879456").getCounts();
 		assertTrue(count > 0);
 		logger.info(count + " words possible");
 	}
 
 	@Test
 	public final void serviceListTest() {
-		WordsDto words = service.list("8273425", "3");
-		assertTrue(words.getWords().size() == 20);
+		WordsDto words = service.list("3879456", "3");
+		assertEquals(words.getWords().size(), 20);
 		for (String s : words.getWords())
 			logger.info(s);
 		logger.info(words.getCounts() + " words possible");
